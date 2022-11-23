@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React</title>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.20.4/babel.min.js"
+      integrity="sha512-L3Pu13lcF5GNw8Xk/NThb/dtbjtUVWwIkdD+XKGrEyFOjDy+6UOL6BzeBRBxYKSu8y340J8Q7QNZEUuDu0Ud2g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <div id="root">
+      <!--React renders inside this node-->
+    </div>
+
+    <h1>outside react</h1>
+  </body>
+
+  <script type="text/babel">
+    const rootNode = document.getElementById("root");
+
+    const jsx = (
+      <div>
+        <h1>Hello World!</h1>
+      </div>
+    );
+
+    // JavaScript XML
+    // const jsx = React.createElement("h1", null, "Hello World!");
+
+    ReactDOM.render(jsx, rootNode);
+  </script>
+</html>
