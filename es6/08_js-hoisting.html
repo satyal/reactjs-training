@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hoisting</title>
+    <script>
+      //Fuction hoisting
+      sayHello();
+
+      function sayHello() {
+        console.log("Hello!");
+      }
+      console.log("--------------------------------");
+
+      //Variable hoisting
+      x = 100;
+      console.log("x: " + x); //100
+      var x;
+      console.log("x: " + x); //100
+      console.log("--------------------------------");
+
+      //Variable initialization is not hoisted. Only declaration is hoisted
+      console.log("y: " + y); //undefined
+      var y = 500;
+
+      console.log("--------------------------------");
+      //Variable hoisting inside function
+      function sayHi() {
+        z = "Hi!";
+        console.log("z: " + z); //Hi!
+        let z;
+        console.log("z: " + z); //Hi!
+      }
+
+      sayHi();
+    </script>
+  </head>
+
+  <body></body>
+</html>

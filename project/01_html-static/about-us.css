@@ -1,0 +1,12 @@
+/*Beginning of Bount us styles*/
+.about-us {
+  display: grid;
+  place-items: center;
+
+  font-size: 14px;
+
+  max-width: 700px;
+  padding: 15px;
+  margin: 0 5%;
+}
+/*Beginning of Bount us styles*/

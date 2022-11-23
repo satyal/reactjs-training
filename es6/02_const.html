@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    //'const' keyword
+
+    const a = {
+      fname: "Sreekanth",
+      lname: "M E",
+    };
+
+    a.lname = "test";
+    console.log("a.lname: " + a.lname); //This change is accepted
+
+    //This prevents any updates to the object
+    Object.freeze(a);
+
+    a.lname = "test2"; //This change is rejected. Though no error is thrown
+    console.log("a.lname: " + a.lname);
+
+    console.log("----------------------------------------------------");
+
+    //'const' can't be declared without initializing
+    const x = 100; //No error
+
+    const y; //error occurs as not initialized
+
+    console.log("----------------------------------------------------");
+  </script>
+</html>

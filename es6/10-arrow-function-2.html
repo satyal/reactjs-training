@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ES6 Arrow Functions</title>
+    <script>
+      //'this' keyword in a normal callback function points to global (window) object.So seting 'this' to a temp variable is essential in function constructors
+      // But an arrow function doesn't have a separate 'this'
+      function Person(name) {
+        this.name = name;
+        //setTimeout is a callback
+        setTimeout(function () {
+          console.log("normal function", this);
+        }, 2000);
+
+        //The only difference between this setTimeout and the second one above one is callback is written using an arrow function
+        setTimeout(() => {
+          console.log("arrow function", this);
+        }, 2000);
+      }
+
+      console.log("1");
+      let p = new Person("Sreekanth");
+      console.log("2");
+    </script>
+  </head>
+
+  <body></body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    //'let' keyword
+
+    //uses old 'var' keyword
+    function usesVar() {
+      {
+        //with var, the variable declaration gets hoisted so we will not get an error when attempting to use it before its declaration appears in code
+        console.log(x); //output: undefined
+        var x = 1;
+      }
+      console.log(x); //output: 1
+
+      for (var i = 0; i < 10; i++) {
+        //the variable 'i' is available outside the for block as well
+      }
+
+      console.log(i); //output: 10
+    }
+
+    //uses 'let' keyword
+    function usesLet() {
+      //whenever we have curly braces in code, it defines a "block"
+      {
+        console.log(x); //error, the variable is not defined
+
+        //x is only available within this block
+        let x = 1;
+      }
+      console.log(x); //output: Error, x is not defined
+
+      for (let i = 0; i < 10; i++) {
+        //the variable 'i' is only available within the for block
+      }
+
+      console.log(i); //output: Error, i is not defined
+    }
+
+    usesVar();
+    console.log("----------------------------------------------------");
+    usesLet();
+  </script>
+</html>

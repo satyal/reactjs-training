@@ -1,0 +1,8 @@
+/*Beginning of Dashboard styles*/
+.dashboard {
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+}
+/*End of Dashboard styles*/

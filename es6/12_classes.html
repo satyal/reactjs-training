@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classes</title>
+  </head>
+  <body></body>
+
+  <script>
+    // Object literal approach
+    const p3 = {
+      fName: "Sreekanth",
+      lName: "M E",
+
+      printName: function () {
+        console.log(`${this.fName} ${this.lName}`);
+      },
+    };
+
+    p3.printName();
+
+    // Object constructor (function constructor / constructor function) approach
+    function Person(fName, lName) {
+      this.fName = fName;
+      this.lName = lName;
+
+      this.printName = function () {
+        console.log(`${this.fName} ${this.lName}`);
+      };
+    }
+
+    const p1 = new Person("Sreekanth", "M E");
+
+    p1.printName();
+
+    // Class approach
+    class Person1 {
+      constructor(fName, lName) {
+        this.fName = fName;
+        this.lName = lName;
+      }
+
+      printName() {
+        console.log(`${this.fName} ${this.lName}`);
+      }
+    }
+
+    const p2 = new Person1("Sreekanth", "M E");
+
+    p2.printName();
+  </script>
+</html>

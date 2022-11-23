@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6</title>
+  </head>
+  <body></body>
+  <script type="text/javascript">
+    //Spread Operator
+    const array1 = [1, 2, 3];
+    const array2 = [3, 4, 5];
+
+    // const array3 = [...array1, ...array2];
+    const array3 = [56, ...array2, 77, ...array1, 100];
+
+    console.log("array3", array3);
+
+    //----------------------------------------
+    const obj1 = {
+      x: 100,
+      y1: 200,
+      z1: 300,
+    };
+
+    const obj2 = {
+      x: "Orange",
+      y: "Apple",
+      z: "Grape",
+    };
+
+    const obj3 = { ...obj1, test: 10000, ...obj2 };
+
+    console.log("obj3", obj3);
+  </script>
+</html>

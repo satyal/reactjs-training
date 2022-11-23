@@ -1,0 +1,16 @@
+/*Beginning of Login Form styles*/
+
+.login-form-container {
+  display: grid;
+  place-items: center;
+}
+
+.login-form-container .login-form {
+  border: 1px #555 solid;
+  border-radius: 10px;
+
+  box-shadow: 2px 2px #888;
+
+  padding: 30px;
+}
+/*End of Login Form styles*/

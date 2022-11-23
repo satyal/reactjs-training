@@ -1,0 +1,8 @@
+/*Beginning of Departments styles*/
+.departments {
+  width: 100%;
+
+  display: grid;
+  place-items: center;
+}
+/*End of Departments styles*/

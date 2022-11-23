@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Closure</title>
+  </head>
+  <body></body>
+
+  <script>
+    // Closures.
+    // Every function is a closure as it has reference to its lexical scope
+    function counterCreator(step) {
+      let i = 100;
+
+      return function () {
+        i = i + step;
+
+        console.log("counter: ", i);
+      };
+    }
+
+    const fiveStepCounter = counterCreator(5);
+
+    const tenStepCounter = counterCreator(10);
+
+    fiveStepCounter();
+    fiveStepCounter();
+    fiveStepCounter();
+    fiveStepCounter();
+    console.log("-------------");
+    tenStepCounter();
+    tenStepCounter();
+  </script>
+</html>

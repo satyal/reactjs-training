@@ -1,0 +1,103 @@
+/*Beginning of Layout styles*/
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: maroon;
+}
+
+body a {
+  text-decoration: none;
+
+  color: lightyellow;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  height: 50px;
+
+  background-color: #777;
+}
+
+header .logo-container {
+  display: grid;
+  align-items: center;
+
+  margin-left: 15px;
+}
+
+header .menu-container {
+  display: grid;
+  align-items: center;
+  justify-items: end;
+}
+
+header .menu-container .menu {
+  list-style-type: none;
+}
+
+header .menu-container .menu .menu-item {
+  display: inline-block;
+  margin-right: 15px;
+
+  font-size: 14px;
+}
+
+main {
+  display: grid;
+  justify-items: center;
+
+  position: absolute;
+  top: 50px;
+  bottom: 30px;
+  width: 100%;
+
+  color: darkslategrey;
+}
+
+footer {
+  display: grid;
+  place-items: center;
+
+  height: 30px;
+
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+
+  background-color: #777;
+
+  font-size: 12px;
+}
+
+/*End of Layout styles*/
+
+/*Beginning of Form styles*/
+.form-field {
+  margin-bottom: 15px;
+
+  font-size: 14px;
+}
+
+.form-field .ff-label {
+  margin-bottom: 2px;
+}
+
+.form-field .ff-content {
+}
+
+button {
+  padding: 6px 10px;
+
+  margin-right: 10px;
+  background-color: teal;
+  color: white;
+
+  border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+}
+
+/*End of Form styles*/
