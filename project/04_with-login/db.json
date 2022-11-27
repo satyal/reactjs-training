@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "name": "Sreekanth",
+      "username": "sree",
+      "password": "test",
+      "id": 1
+    },
+    {
+      "name": "name",
+      "username": "username",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "name": "test",
+      "username": "test",
+      "password": "test",
+      "id": 3
+    }
+  ],
+  "employees": [],
+  "departments": []
+}
