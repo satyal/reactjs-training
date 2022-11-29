@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redux</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"
+      integrity="sha512-1/8Tj23BRrWnKZXeBruk6wTnsMJbi/lJsk9bsRgVwb6j5q39n0A00gFjbCTaDo5l5XrPVv4DZXftrJExhRF/Ug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body>
+    <form>
+      <div>
+        Step: &nbsp;<input id="stepTextBox" type="text" value="1" /><br /><br />
+      </div>
+
+      <input type="button" value="Increment" onclick="increment()" /> &nbsp;
+      <input type="button" value="Decrement" onclick="decrement()" />
+    </form>
+
+    <h1 id="counterDiv">0</h1>
+  </body>
+  <script>
+    function counterReducer(prevState = { count: 0 }, action) {
+      let newState;
+
+      switch (action.type) {
+        case "INCREMENT":
+          newState = {
+            ...prevState,
+            count: prevState.count + parseInt(action.step),
+          };
+          break;
+
+        case "DECREMENT":
+          newState = { ...prevState, count: prevState.count - action.step };
+          break;
+
+        default:
+          newState = prevState;
+          break;
+      }
+
+      console.log({ prevState, action, newState });
+
+      return newState;
+    }
+
+    const reduxStore = Redux.createStore(counterReducer);
+
+    function increment() {
+      const text = document.getElementById("stepTextBox").value;
+
+      reduxStore.dispatch({ type: "INCREMENT", step: text });
+    }
+
+    function decrement() {
+      const text = document.getElementById("stepTextBox").value;
+
+      reduxStore.dispatch({ type: "DECREMENT", step: text });
+    }
+
+    reduxStore.subscribe(() => {
+      console.log("First subscriber: ", reduxStore.getState());
+
+      const count = reduxStore.getState().count;
+
+      document.getElementById("counterDiv").innerText = count;
+    });
+
+    reduxStore.subscribe(() => {
+      console.log("Second subscriber: ", reduxStore.getState());
+    });
+  </script>
+</html>
+
+<!--
+    Store: {count:0}
+    Actions:
+        INCREMENT: {type:"INCREMENT"}
+        DECREMENT:  {type:"DECREMENT"}
+-->
+
+<!--
+-- Create View (UI)
+-- Design Store & Actions
+-- Create reducer
+-- Create store with initial state
+-- Create action creators
+-- Dispatch actions 
+-- Bind store to UI & test the full functionality
+-->
