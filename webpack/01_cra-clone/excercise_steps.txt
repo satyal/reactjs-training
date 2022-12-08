@@ -1,0 +1,186 @@
+See how create-react-app works
+Eject to see webpack config files
+================================================
+npm init
+================================================
+npm install webpack webpack-cli --save-dev
+================================================
+"scripts": {
+    "build": "webpack"
+  }
+================================================
+npm run build --> errors
+================================================
+create src folder and index.js inside it
+================================================
+npm run build --> now creates dist folder with main.js in it
+================================================
+create math.js and import in index.js and run "npm run build" --> see main.js
+dependency graph
+See the output information in command prompt.
+see unused library code missing in build
+================================================
+import loadash
+use its method in index.js
+see main.js --> dependency is also bundled
+================================================
+add --mode=development to "build" script and see the main.js
+change back to production
+
+compare bundle size and what is inside
+================================================
+// webpack.config.js
+
+module.exports = {
+  mode: "production",
+};
+================================================
+const path = require("path");
+
+module.exports = {
+  entry: "./src/index.js",
+  mode: "production",
+};
+================================================
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "main.js",
+  },
+  mode: "production",
+};
+================================================
+Understand loaders vs plugins
+================================================
+npm install html-webpack-plugin --save-dev
+================================================
+create boilerplate index.html file in a new "public" folder
+================================================
+const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "main.js",
+  },
+  mode: "production",
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.join(__dirname, "public", "index.html"),
+    }),
+  ],
+};
+================================================
+Launch build/index.html file in brrowser and see JS working
+See injected script tag in build/index.html in editor
+================================================
+see npm documentation of html-webpack-plugin
+================================================
+npm install --save-dev webpack-dev-server
+================================================
+{
+  // ...,
+  devServer: {
+    static: {
+      directory: path.join(__dirname, "build"),
+    },
+    port: 3000,
+  }
+}
+================================================
+Add these scripts to package.json:
+"start": "webpack serve --mode development"
+"build": "webpack --mode production"
+================================================
+Run "npm start" from command line. Open http://localhost:3000/ manually in browser
+================================================
+modify something in index.js and see it immediately live reloaded in browser
+================================================
+Add "open: true" under "devServer" key in webpack.config.js
+Rerun "npm start" --> launches in browser automatically
+================================================
+npm install react react-dom
+uninstall lodash
+delete math.js
+================================================
+Write React code
+================================================
+npm install @babel/core @babel/preset-env babel-loader @babel/preset-react --save-dev
+================================================
+create .babelrc in root folder containing:
+
+{
+    "presets": [
+      "@babel/preset-env",
+      ["@babel/preset-react", {
+      "runtime": "automatic"
+    }]
+    ]
+}
+================================================
+module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"],
+      },
+    ],
+  },
+================================================
+Test react code
+Create App.js
+================================================
+Create index.css in src folder with some styling and import in index.js:
+
+import "./index.css"
+================================================
+npm install css-loader style-loader -D
+================================================
+ {
+        test: /\.css$/,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      }
+================================================
+Check "npm start" and "npm run build"
+
+build will have css in JS injected by the style-loader
+================================================
+Copy webpack.config.js into 2 files namely webpack.config_prod.js and webpack.config_dev.js
+
+Pass these as params with --config flag to the package.json scripts respectively
+================================================
+npm install --save-dev mini-css-extract-plugin
+================================================
+Add this in _prod.js
+
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+================================================
+Replace style-loader with mini-css-extract-plugin loader as follows:
+
+{
+	test: /\.css$/,
+	use: [
+	  { loader: MiniCssExtractPlugin.loader },
+	  {
+		loader: "css-loader",
+		options: {
+		  modules: true,
+		},
+	  },
+	],
+},
+================================================
+Run "npm run build" to see css content extracted to a separate file
+================================================
