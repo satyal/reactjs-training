@@ -1,0 +1,15 @@
+.filters-form {
+  padding: 20px;
+}
+
+.filters-form a {
+  margin-right: 15px;
+}
+
+.todo-list {
+  list-style: none;
+}
+
+.todo-list li {
+  margin-bottom: 10px;
+}
